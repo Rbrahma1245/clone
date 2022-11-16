@@ -1,0 +1,75 @@
+/* DESTINATIONS CSS */
+
+.container {
+    width: 80%;
+    margin-left: 250px;
+    /* border: 1px solid black; */
+
+}
+
+.featureCard {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    width: 800px;
+
+}
+
+.destimage {
+    width: 250px;
+
+}
+
+
+
+
+
+
+
+/* DETAILS */
+
+.blockDetails {
+    padding: 20px 50px;
+    margin-left: 250px;
+    /* position: relative; */
+    top: 50px;
+    left: 200px;
+    width: 70%;
+    display: block;
+    text-align: justify;
+}
+
+
+.box {
+    padding: 25px 1px;
+    /* border: 1px solid black; */
+    display: flex;
+}
+
+
+.latestCard {
+
+    display: flex;
+    background: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    width: 80%;
+    text-align: justify;
+    /* background: rgb(255, 237, 237); */
+    /* border: 2px solid black; */
+}
+
+.card1 {
+    background: white;
+    margin-left: 20px;
+    padding: 20px 25px;
+    width: 700px;
+    /* background: rgb(255, 237, 237); */
+    /* border: 2px solid black; */
+}
+
+.imgdetails {
+    width: 100%;
+    left: 50px;
+    height: 300px;
+}

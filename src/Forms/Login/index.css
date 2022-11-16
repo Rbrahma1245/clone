@@ -1,0 +1,57 @@
+/* This is for Login Page */
+
+
+.container1 {
+
+    /* width: 90%; */
+    display: flex;
+    margin: 50px;
+    /* border: 2px solid black; */
+    margin-left: 400px;
+    /* background: rgb(121, 170, 187); */
+
+}
+
+.form1 {
+
+    width: 500px;
+    background: rgb(251, 240, 240);
+    padding: 12px 20px;
+    /* margin-left: 400px; */
+
+    /* border: 2px solid black; */
+
+}
+
+
+
+
+.Text {
+
+    width: 80%;
+    height: 20px;
+    font-size: 15px;
+    padding: 12px 20px;
+    /* border: 1px solid black; */
+
+
+}
+
+
+.submitnbtn {
+    font-size: 14px;
+    padding: 10px 24px;
+    width: 90%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #46a049;
+    color: rgb(247, 244, 244);
+    /* border: 2px solid #081208; */
+
+}
+
+.submitbtn:hover {
+    background-color: #2d9431;
+    cursor: pointer;
+
+}

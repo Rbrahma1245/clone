@@ -1,9 +1,49 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import discount from '../../Assets/Images/discount.png'
 import './index.css';
+import axios from 'axios'
+
+import { API } from '../../vars.js'
+
+
 
 const Login = () => {
+
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+
+
+
+
+
+    const handleSubmit = async (e) => {
+
+        e.preventDefault();
+
+
+        const userData = {
+            email: email,
+            password: password
+        }
+
+        console.log(userData)
+
+        try {
+
+            const { data } = await axios.post(' https://mamakoo-api.mithyalabs.com/api/users/login', userData)
+            alert(' Login success')
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+
+
+
 
 
 
@@ -20,13 +60,13 @@ const Login = () => {
 
                     <div className='form2'>
                         <div>
-                            <input type='text' placeholder="Email" className="Text" />
+                            <input type='text' placeholder="Email" className="Text" value={email} onChange={(e) => setEmail(e.target.value)} />
                             <br />
                             <br />
-                            <input type='text' placeholder="Password" className="Text" />
+                            <input type='text' placeholder="Password" className="Text" value={password} onChange={(e) => setPassword(e.target.value)} />
                             <br />
                             <br />
-                            <button className='submitbtn'> SUBMIT </button>
+                            <button className='submitbtn' onClick={handleSubmit}> SUBMIT </button>
                             <br />
                             <br />
                             <div>

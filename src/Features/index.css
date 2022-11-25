@@ -1,3 +1,6 @@
+/* HEADER  CSS*/
+
+
 .nav {
     position: sticky;
     top: 0;
@@ -7,8 +10,6 @@
     z-index: 50;
     padding: 15px 20px;
     height: 30px;
-
-
 }
 
 .nav a {
@@ -23,15 +24,16 @@
 
 
 
+
+/* FOOTER  CSS */
+
 .footer {
     display: flex;
     height: 250px;
     padding: 10px 15px;
     background: rgb(230, 222, 222);
     font-size: 14px;
-
     /* border: 1px solid black; */
-
 }
 
 .details {
@@ -45,7 +47,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     /* border: 1px solid black; */
     display: flex;
-
 
 }
 
@@ -62,11 +63,9 @@
 .details2 {
     margin-top: 50px;
     margin-left: 200px;
-
     /* border: 1px solid black; */
 }
 
 img {
-
     width: 170px;
 }

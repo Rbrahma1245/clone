@@ -8,6 +8,7 @@ import Details from './Details.jsx';
 import Card from '../../Components/Card.jsx';
 
 
+
 const Destination = () => {
 
     const [blogs, setBlogs] = useState([]);

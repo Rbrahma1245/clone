@@ -37,15 +37,8 @@ const AppProvider = ({ children }) => {
         try {
             const { data } = await axios.get(API + `posts/?${query} `)
             // console.log(data.data)
-
-            dispatch({
-                type: "GET_STORIES",
-                payload: {
-                    hits: data.data,
-                    // nbPages: data.nbPages
-                }
-            })
         }
+
 
         catch (error) {
             console.log(error)
@@ -67,7 +60,7 @@ const AppProvider = ({ children }) => {
 
     }
 
-    console.log(state.hits)
+    // console.log(state.hits)
 
     useEffect(() => {
         fetchApiData(state.search);

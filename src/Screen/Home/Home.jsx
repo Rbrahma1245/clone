@@ -2,6 +2,7 @@ import React from 'react'
 // import Destination from '../Destination/Destination'
 import { NavLink } from 'react-router-dom';
 import videourl from '../../Assets/Videos/HeaderVideo.mp4';
+import NewForm from '../../Forms/NewForm';
 // import Search from '../Xyz/Search';
 // import Stories from '../Xyz/Stories';
 
@@ -18,6 +19,8 @@ const Home = () => {
                 {/* <Destination /> */}
                 {/* <Search />
                 <Stories /> */}
+
+                <NewForm />
             </div>
 
 

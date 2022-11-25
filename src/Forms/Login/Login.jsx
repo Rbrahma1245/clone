@@ -3,47 +3,35 @@ import { NavLink } from 'react-router-dom';
 import discount from '../../Assets/Images/discount.png'
 import './index.css';
 import axios from 'axios'
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
-import { API } from '../../vars.js'
 
 
 
 const Login = () => {
 
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+        },
+        validationSchema: yup.object({
+            email: yup.string().email('Invalid Email Address').required('Required'),
+            password: yup.string().required("Please provide a valid password"),
+        }),
+        onSubmit: async (values) => {
+            try {
+                console.log(values)
+                const { data } = await axios.post(`https://mamakoo-api.mithyalabs.com/api/users/login`, values);
+                console.log(data)
+                alert('Login successfull')
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-
-
-
-
-
-
-    const handleSubmit = async (e) => {
-
-        e.preventDefault();
-
-
-        const userData = {
-            email: email,
-            password: password
+            } catch (err) {
+                console.log(err);
+            }
         }
-
-        console.log(userData)
-
-        try {
-
-            const { data } = await axios.post(' https://mamakoo-api.mithyalabs.com/api/users/login', userData)
-            alert(' Login success')
-            console.log(data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-
-
-
+    })
 
 
 
@@ -59,20 +47,46 @@ const Login = () => {
                     <h3>LogIn</h3>
 
                     <div className='form2'>
-                        <div>
-                            <input type='text' placeholder="Email" className="Text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <form onSubmit={formik.handleSubmit}>
+
+                            <input
+                                id='email'
+                                name='email'
+                                placeholder="Email"
+                                className="Text"
+                                type='text'
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.email}
+                            />
+
+                            {formik.touched.email && formik.errors.email ? (
+                                <div>{formik.errors.email}</div>
+                            ) : null}
                             <br />
                             <br />
-                            <input type='text' placeholder="Password" className="Text" value={password} onChange={(e) => setPassword(e.target.value)} />
+
+                            <input
+                                id='password'
+                                name='password'
+                                placeholder="Password"
+                                className="Text"
+                                type='password'
+                                onChange={formik.handleChange}
+                                onBlur={formik.handleBlur}
+                                value={formik.values.password}
+                            />
+                            {formik.touched.password && formik.errors.password ? (
+                                <div>{formik.errors.password}</div>
+                            ) : null}
                             <br />
                             <br />
-                            <button className='submitbtn' onClick={handleSubmit}> SUBMIT </button>
-                            <br />
-                            <br />
+
+                            <button className='submitbtn' type='submit'>SUBMIT</button>
                             <div>
                                 <h4>Don't have account ? <NavLink to="/signup"> Sign Up </NavLink> </h4>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

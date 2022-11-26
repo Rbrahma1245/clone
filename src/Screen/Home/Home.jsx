@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import videourl from '../../Assets/Videos/HeaderVideo.mp4';
 
 import TravelPlaces from '../../Components/TravelPlaces.jsx';
-
+import MidHome from './MidHome.jsx';
 
 
 const Home = () => {
@@ -78,7 +78,7 @@ const Home = () => {
                     }
                 </div>
 
-
+                <MidHome />
             </div>
 
 

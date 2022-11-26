@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Router } from 'react-router-dom';
 import discount from '../../Assets/Images/discount.png'
 import './index.css';
 import axios from 'axios'
@@ -25,14 +25,15 @@ const Login = () => {
                 console.log(values)
                 const { data } = await axios.post(`https://mamakoo-api.mithyalabs.com/api/users/login`, values);
                 console.log(data)
+                window.localStorage.setItem('ID', data.id)
                 alert('Login successfull')
+                window.location.replace('/');
 
             } catch (err) {
                 console.log(err);
             }
         }
     })
-
 
 
 
@@ -82,7 +83,7 @@ const Login = () => {
                             <br />
                             <br />
 
-                            <button className='submitbtn' type='submit'>SUBMIT</button>
+                            <button className='submitbtn' type='submit' >SUBMIT</button>
                             <div>
                                 <h4>Don't have account ? <NavLink to="/signup"> Sign Up </NavLink> </h4>
                             </div>

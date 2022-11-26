@@ -1,8 +1,15 @@
+.main-container {
+    background: rgb(253, 246, 249);
+    height: 1500px;
+}
+
+
 .destination-container {
     /* border: 2px solid black; */
+
     margin-left: 150px;
     text-align: left;
-    margin-top: 50px;
+    margin-top: 70px;
     height: 400px;
 }
 
@@ -10,11 +17,76 @@
 .new-container {
     width: 100px;
     display: flex;
+    /* background: rgb(253, 246, 249); */
 
 }
 
 .vid {
     object-fit: cover;
     height: 400px;
+    width: 100%;
     /* border: 2px solid black; */
+}
+
+.mid-container {
+    margin-top: 120px;
+    margin-left: 90px;
+    height: 400px;
+    width: 1000px;
+    text-align: center;
+    /* border: 2px solid black; */
+}
+
+.text1 {
+    /* border: 2px solid black; */
+    font-style: normal;
+    font-family: Gabriola;
+    font-size: 50px;
+    line-height: 45px;
+    color: rgb(46, 44, 44);
+    word-spacing: 10px;
+}
+
+
+.text2 {
+    margin-top: 0;
+    /* border: 2px solid black; */
+    font-style: normal;
+    font-size: 18px;
+    line-height: 2px;
+    font-family: Bahnschrift SemiLight Condensed;
+    color: rgb(71, 69, 69);
+
+}
+
+.text3 {
+    margin-top: 25px;
+    /* border: 2px solid black; */
+    font-style: normal;
+    font-size: 18px;
+    line-height: 2px;
+    font-family: Bahnschrift SemiLight Condensed;
+    color: rgb(71, 69, 69);
+
+}
+
+
+.Submitbtn {
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 10px 24px;
+    width: 30%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #c34848;
+    color: rgb(247, 244, 244);
+    /* border: 2px solid #081208; */
+
+}
+
+.Submitbtn:hover {
+    background-color: #c34040;
+    cursor: pointer;
+
 }

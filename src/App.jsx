@@ -12,6 +12,7 @@ import Page404 from './Screen/Page404';
 import SignUP from './Forms/SignUp/SignUP';
 import Login from './Forms/Login/Login';
 import Details from './Screen/Destination/Details';
+import Logout from './Forms/Logout/Logout';
 
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/nearby" element={<NearBy />} />
         <Route path="/signup" element={<SignUP />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/destinations/:blogId" element={<Details />} />
         <Route path="*" element={<Page404 />} />
 

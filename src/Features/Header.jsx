@@ -5,20 +5,57 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
 
+
+    // if ("ID" in localStorage) {
+    //     alert('yes');
+    // } else {
+    //     alert('no');
+    // }
+
+
+
+
+
+    const handleLogout = () => {
+
+        window.localStorage.removeItem('ID');
+        window.location.replace('/');
+    }
+
+
+
+
+
+
+
     return (
         <div className='nav'>
-            <div >
-                <NavLink to="/" >
-                    <img src={logo} alt="Logo" />
-                </NavLink>
-                <NavLink to="/destinations">  DESTINATIONS</NavLink>
-                <NavLink to="/about">  ABOUT</NavLink>
+            <div className='header-first'>
+                <div>
+                    <NavLink to="/" >
+                        <img src={logo} alt="Logo" />
+                    </NavLink>
+                </div>
+                <div>
+                    <NavLink to="/destinations">  DESTINATIONS</NavLink>
+                    <NavLink to="/about">  ABOUT</NavLink>
+                </div>
+
             </div>
-            <div >
-                <NavLink to="/search">  SEARCH</NavLink>
+            <div className='header-last'>
+                <div > <NavLink to="/search">  SEARCH</NavLink></div>
                 {/* <NavLink to="/nearby">  NEARBY</NavLink> */}
-                <NavLink to="/signup">  SIGN UP</NavLink>
-                <NavLink to="/login">  LOGIN</NavLink>
+
+                {
+                    localStorage.getItem('ID') !== null ? (<button className='logoutbtn' onClick={handleLogout}>LOG OUT</button>)
+                        : <div >
+                            <NavLink to="/signup">  SIGN UP </NavLink>
+                            <NavLink to="/login">  LOGIN</NavLink>
+                        </div>
+                }
+
+
+
             </div>
         </div >
     )

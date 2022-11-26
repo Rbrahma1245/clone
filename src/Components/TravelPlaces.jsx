@@ -14,7 +14,7 @@ const TravelPlaces = (props) => {
 
 
             <div className="new1">
-                <NavLink to={`/destinations/${currPost.id}`} > {currPost.attributes.title}</NavLink>
+                <NavLink className="new1" to={`/destinations/${currPost.id}`} > {currPost.attributes.title}</NavLink>
 
 
             </div>

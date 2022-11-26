@@ -1,0 +1,20 @@
+.destination-container {
+    /* border: 2px solid black; */
+    margin-left: 150px;
+    text-align: left;
+    margin-top: 50px;
+    height: 400px;
+}
+
+
+.new-container {
+    width: 100px;
+    display: flex;
+
+}
+
+.vid {
+    object-fit: cover;
+    height: 400px;
+    /* border: 2px solid black; */
+}

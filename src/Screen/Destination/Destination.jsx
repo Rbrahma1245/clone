@@ -43,9 +43,7 @@ const Destination = () => {
         setIsLoading(false);
     }
 
-    const handleFilter = (e) => {
-        setSearch(e.target.value)
-    }
+
 
     if (isLoading) {
         return (
@@ -58,11 +56,10 @@ const Destination = () => {
 
     return (
         <div className="container">
-            <input type="text" placeholder='Search Here' onChange={() => handleFilter} />
+
             {
                 blogs.map((currPost) => {
                     return (
-
                         <div className="box" key={currPost.id}>
                             <Card currPost={currPost} />
                         </div>

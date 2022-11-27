@@ -5,6 +5,7 @@ import './index.css';
 import axios from 'axios'
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import AuthService from '../../services/authService';
 
 
 const SignUP = () => {
@@ -25,7 +26,7 @@ const SignUP = () => {
 
             try {
                 console.log(values)
-                const { data } = await axios.post(`https://mamakoo-api.mithyalabs.com/api/users/signupAuth`, values);
+                const { data } = await AuthService.signup(values.userName, values.email, values.password);
                 console.log(data)
                 alert('Register successfull')
 

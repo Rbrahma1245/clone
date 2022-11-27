@@ -65,7 +65,7 @@ const Home = () => {
             <video className="vid" width={'100%'} src={videourl} muted autoPlay loop />
 
             <div className='destination-container'>
-                <h3>{text} <NavLink to="/destinations">  See all</NavLink></h3>
+                <h3 className='text0'>{text} <NavLink className="text00" to="/destinations">  See all</NavLink></h3>
                 <div className='new-container'>
                     {
                         blogs.map((currPost) => {

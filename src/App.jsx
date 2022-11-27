@@ -32,7 +32,6 @@ function App() {
         <Route path="/nearby" element={<NearBy />} />
         <Route path="/signup" element={<SignUP />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
         <Route path="/destinations/:blogId" element={<Details />} />
         <Route path="*" element={<Page404 />} />
 

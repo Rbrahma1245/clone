@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import logo from '../Assets/Images/logo.png';
 import { NavLink } from 'react-router-dom';
+import Logout from '../Forms/Logout/Logout';
 
 const Header = () => {
 
@@ -16,11 +17,6 @@ const Header = () => {
 
 
 
-    const handleLogout = () => {
-
-        window.localStorage.removeItem('ID');
-        window.location.replace('/');
-    }
 
 
 
@@ -36,7 +32,7 @@ const Header = () => {
                         <img src={logo} alt="Logo" />
                     </NavLink>
                 </div>
-                <div>
+                <div >
                     <NavLink to="/destinations">  DESTINATIONS</NavLink>
                     <NavLink to="/about">  ABOUT</NavLink>
                 </div>
@@ -47,7 +43,7 @@ const Header = () => {
                 {/* <NavLink to="/nearby">  NEARBY</NavLink> */}
 
                 {
-                    localStorage.getItem('ID') !== null ? (<button className='logoutbtn' onClick={handleLogout}>LOG OUT</button>)
+                    localStorage.getItem('ID') !== null ? <Logout />
                         : <div >
                             <NavLink to="/signup">  SIGN UP </NavLink>
                             <NavLink to="/login">  LOGIN</NavLink>

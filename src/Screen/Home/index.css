@@ -37,6 +37,29 @@
     /* border: 2px solid black; */
 }
 
+
+.text0 {
+    /* border: 2px solid black; */
+    font-style: normal;
+    font-family: Gabriola;
+    font-size: 30px;
+    line-height: 45px;
+    color: rgb(46, 44, 44);
+    word-spacing: 5px;
+}
+
+
+
+.text00 {
+    /* border: 2px solid black; */
+    font-style: normal;
+    font-family: Gabriola;
+    font-size: 30px;
+    color: rgb(143, 31, 31);
+    word-spacing: 5px;
+}
+
+
 .text1 {
     /* border: 2px solid black; */
     font-style: normal;
@@ -56,6 +79,7 @@
     line-height: 2px;
     font-family: Bahnschrift SemiLight Condensed;
     color: rgb(71, 69, 69);
+    word-spacing: 5px;
 
 }
 
@@ -68,6 +92,10 @@
     font-family: Bahnschrift SemiLight Condensed;
     color: rgb(71, 69, 69);
 
+}
+
+.text33 {
+    color: rgb(143, 31, 31);
 }
 
 

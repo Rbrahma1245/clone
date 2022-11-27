@@ -11,6 +11,9 @@ import * as yup from 'yup';
 
 const Login = () => {
 
+    const [userInfo, setUserInfo] = useState('')
+
+
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -24,6 +27,7 @@ const Login = () => {
             try {
                 console.log(values)
                 const { data } = await axios.post(`https://mamakoo-api.mithyalabs.com/api/users/login`, values);
+                setUserInfo(data)
                 console.log(data)
                 window.localStorage.setItem('ID', data.id)
                 alert('Login successfull')

@@ -5,6 +5,7 @@ import './index.css';
 import axios from 'axios'
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import AuthService from '../../services/authService';
 
 
 
@@ -26,12 +27,15 @@ const Login = () => {
         onSubmit: async (values) => {
             try {
                 console.log(values)
-                const { data } = await axios.post(`https://mamakoo-api.mithyalabs.com/api/users/login`, values);
+                // const { data } = await axios.post(`https://mamakoo-api.mithyalabs.com/api/users/login`, values);
+                const { data } = await AuthService.login(values.email, values.password);
                 setUserInfo(data)
+
                 console.log(data)
                 window.localStorage.setItem('ID', data.id)
                 alert('Login successfull')
                 window.location.replace('/');
+
 
             } catch (err) {
                 console.log(err);

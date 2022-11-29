@@ -5,31 +5,12 @@ import axios from 'axios';
 
 
 
-const Logout = (props) => {
+const Logout = () => {
 
 
-    const { values } = props;
-
-    console.log(values)
-
-    useEffect(() => {
-        fetchDestinations()
-    }, [])
 
 
-    const fetchDestinations = async () => {
 
-
-        try {
-            const { data } = await axios.get(`https://mamakoo-api.mithyalabs.com/api/users/me `);
-
-            console.log(data)
-        }
-        catch (error) {
-            console.log(error)
-        }
-
-    }
 
 
 

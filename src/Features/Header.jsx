@@ -4,7 +4,10 @@ import logo from '../Assets/Images/logo.png';
 import { NavLink } from 'react-router-dom';
 import Logout from '../Forms/Logout/Logout';
 
-const Header = () => {
+const Header = (props) => {
+    const { userInfo } = props
+
+    // console.log(userInfo.email)
 
 
     // if ("ID" in localStorage) {
@@ -12,13 +15,6 @@ const Header = () => {
     // } else {
     //     alert('no');
     // }
-
-
-
-
-
-
-
 
 
 
@@ -43,7 +39,7 @@ const Header = () => {
                 {/* <NavLink to="/nearby">  NEARBY</NavLink> */}
 
                 {
-                    localStorage.getItem('ID') !== null ? <Logout />
+                    localStorage.getItem('ID') !== null ? <div className='log-out'> {userInfo.email}  <Logout /> </div>
                         : <div >
                             <NavLink to="/signup">  SIGN UP </NavLink>
                             <NavLink to="/login">  LOGIN</NavLink>

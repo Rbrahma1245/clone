@@ -10,6 +10,9 @@ import TravelPlaces from '../../Components/TravelPlaces.jsx';
 import MidHome from './MidHome.jsx';
 
 
+
+
+
 const Home = () => {
 
 
@@ -79,6 +82,18 @@ const Home = () => {
                 </div>
 
                 <MidHome />
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
 
 

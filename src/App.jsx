@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import './App.css';
 import RootLayout from './Screen/RootLayout';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -15,14 +15,19 @@ import Details from './Screen/Destination/Details';
 // import Logout from './Forms/Logout/Logout';
 import axios from 'axios'
 import AuthService from './services/authService';
+import Profile from './Components/Profile';
 
+
+
+
+
+const userData = createContext();
 
 
 function App() {
   const loading = false;
 
   const [userInfo, setUserInfo] = useState('')
-
 
 
 
@@ -48,28 +53,35 @@ function App() {
 
 
 
+  return (
+    loading ? <p>loading</p> : (
 
+      <div className="App">
 
-  return loading ? <p>loing</p> : (
-    <div className="App">
+        <userData.Provider value={userInfo}>
 
-      <Header userInfo={userInfo} />
+          <Header userInfo={userInfo} />
 
-      <Routes>
-        <Route path="/" element={<RootLayout />} />
-        <Route path="/destinations" element={<Destination />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/nearby" element={<NearBy />} />
-        <Route path="/signup" element={<SignUP />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/destinations/:blogId" element={<Details />} />
-        <Route path="*" element={<Page404 />} />
-      </Routes>
+          <Routes>
+            <Route path="/" element={<RootLayout />} />
+            <Route path="/destinations" element={<Destination />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/nearby" element={<NearBy />} />
+            <Route path="/signup" element={<SignUP />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/destinations/:blogId" element={<Details />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
 
-      <Footer />
-    </div>
-  );
+          <Footer />
+        </userData.Provider>
+      </div>
+    ))
 }
+
+
+export { userData }
 
 export default App;

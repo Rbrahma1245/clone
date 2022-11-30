@@ -1,6 +1,6 @@
+/* TRAVELL PLACES */
+
 .new {
-
-
     display: block;
     margin-left: 5px;
     background: white;
@@ -27,4 +27,22 @@
 .destimage {
     width: 100px;
     height: 200px;
+}
+
+
+
+
+
+/* PROFILE CSS */
+
+.container-profile {
+    background: rgb(253, 246, 249);
+    font-style: normal;
+    font-family: Gabriola;
+    font-size: 30px;
+    line-height: 45px;
+    color: rgb(46, 44, 44);
+    word-spacing: 5px;
+    text-align: center;
+    height: 400px;
 }

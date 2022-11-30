@@ -17,9 +17,6 @@ const Header = (props) => {
     // }
 
 
-
-
-
     return (
         <div className='nav'>
             <div className='header-first'>
@@ -39,12 +36,15 @@ const Header = (props) => {
                 {/* <NavLink to="/nearby">  NEARBY</NavLink> */}
 
                 {
-                    localStorage.getItem('ID') !== null ? <div className='log-out'> {userInfo.email}  <Logout /> </div>
+                    localStorage.getItem('ID') !== null ? <div >   <Logout userInfo={userInfo} /> </div>
                         : <div >
                             <NavLink to="/signup">  SIGN UP </NavLink>
                             <NavLink to="/login">  LOGIN</NavLink>
                         </div>
                 }
+
+
+
 
 
 

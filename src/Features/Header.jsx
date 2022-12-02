@@ -3,18 +3,21 @@ import './index.css';
 import logo from '../Assets/Images/logo.png';
 import { NavLink } from 'react-router-dom';
 import Logout from '../Forms/Logout/Logout';
+import Profile from '../Components/Profile';
 
-const Header = (props) => {
-    const { userInfo } = props
-
-    // console.log(userInfo.email)
+const Header = () => {
 
 
-    // if ("ID" in localStorage) {
+    // if ("access_token" in localStorage) {
     //     alert('yes');
     // } else {
     //     alert('no');
     // }
+
+    // let key = window.localStorage.key("access_token");
+    // console.log(key)
+
+
 
 
     return (
@@ -35,19 +38,18 @@ const Header = (props) => {
                 <div > <NavLink to="/search">  SEARCH</NavLink></div>
                 {/* <NavLink to="/nearby">  NEARBY</NavLink> */}
 
-                {
-                    localStorage.getItem('ID') !== null ? <div >   <Logout userInfo={userInfo} /> </div>
-                        : <div >
-                            <NavLink to="/signup">  SIGN UP </NavLink>
-                            <NavLink to="/login">  LOGIN</NavLink>
-                        </div>
-                }
+                <div>
+                    {
+                        window.localStorage.getItem('access_token') !== null ? <Logout />
+                            :
+                            <div >
+                                {window.localStorage.clear()}
+                                <NavLink to="/signup">  SIGN UP </NavLink>
+                                <NavLink to="/login">  LOGIN </NavLink>
+                            </div>
+                    }
 
-
-
-
-
-
+                </div>
             </div>
         </div >
     )

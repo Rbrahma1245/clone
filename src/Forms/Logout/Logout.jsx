@@ -8,13 +8,13 @@ const Logout = () => {
 
 
     const handleLogout = async () => {
-        window.localStorage.removeItem('ID');
+        window.localStorage.removeItem('access_token');
         window.location.replace('/');
     }
 
 
     return (
-        <div >
+        <div className='container-logout'>
             <div className="dropdown">
                 <button className="dropbtn">   </button>
                 <div className="dropdown-content">

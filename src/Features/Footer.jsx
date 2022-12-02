@@ -28,6 +28,7 @@ const Footer = () => {
                 <br />
                 <img src={androidstore} alt="Logo" style={{ width: 130 }} />
             </div>
+
         </div >
     )
 }

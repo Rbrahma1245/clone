@@ -12,7 +12,7 @@ class AuthService {
     static profile() {
         return axiosInstance.get(`users/me`, {
             headers: {
-                Authorization: localStorage.ID
+                Authorization: localStorage.access_token
             }
         });
     }

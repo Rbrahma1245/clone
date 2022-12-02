@@ -29,14 +29,11 @@ const SignUP = () => {
                 const { data } = await AuthService.signup(values.userName, values.email, values.password);
                 console.log(data)
                 alert('Register successfull')
-
             } catch (err) {
                 console.log(err);
             }
-
         }
     })
-
 
 
     return (

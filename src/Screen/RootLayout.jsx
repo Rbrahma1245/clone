@@ -5,6 +5,7 @@ import Home from './Home/Home'
 const RootLayout = () => {
 
     return (
+
         <div>
             <Home />
         </div>

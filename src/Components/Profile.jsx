@@ -6,9 +6,9 @@ const Profile = () => {
 
 
 
-
     return (
         <div className='container-profile'>
+
             <userData.Consumer>
                 {(currData) => {
                     console.log(currData)
@@ -16,7 +16,8 @@ const Profile = () => {
                         <div>
                             <p>Your Email :  {currData.email}</p>
                             <p>Your ID :  {currData.id}</p>
-                            <p>Created At :  {currData.created.slice(0, 10)}</p>
+                            <p>Created At : {currData.created?.slice(0, 10)}</p>
+
                         </div>
                     )
                 }}

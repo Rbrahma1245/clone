@@ -9,7 +9,8 @@
     background-color: rgb(255, 255, 255);
     z-index: 50;
     padding: 15px 20px;
-    height: 30px;
+    height: 35px;
+
 }
 
 .nav a {
@@ -17,23 +18,22 @@
     display: inline block;
     text-decoration: none;
     color: black;
-    text-align: center;
     padding: 15px 10px;
-
 }
 
 
 
 .header-first {
     display: flex;
-
-    /* border: 1px solid black; */
+    align-items: center
+        /* border: 1px solid black; */
 }
-
 
 
 .header-last {
     display: flex;
+    align-items: center;
+    /* letter-spacing: 50px; */
     /* border: 1px solid black; */
 }
 
@@ -42,25 +42,13 @@
 
 
 
-/* .log-out {
-    display: flex;
-    color: #d2732a;
-} */
+.Submitbtn:hover {
+    background-color: #c34040;
+    cursor: pointer;
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 /* FOOTER  CSS */
 
 .footer {
@@ -87,6 +75,7 @@
 }
 
 .details1 {
+    text-decoration: none;
     padding: 10px 15px;
     text-align: left;
     margin-top: 35px;

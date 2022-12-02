@@ -15,7 +15,7 @@ const midHome = () => {
             <br />
             <div>
                 {
-                    localStorage.getItem('ID') !== null ? null
+                    localStorage.getItem('access_token') !== null ? null
                         : <div >
                             <h4 className='text3'>Already have an account ? <NavLink className="text33" to="/login"> Login </NavLink> </h4>
                         </div>

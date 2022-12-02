@@ -38,7 +38,7 @@ function App() {
 
   const fetchUserInfo = async () => {
     try {
-      if ("ID" in localStorage) {
+      if ("access_token" in localStorage) {
         // alert('yes')
         const { data } = await AuthService.profile();
         setUserInfo(data)
@@ -46,6 +46,8 @@ function App() {
       }
     }
     catch (error) {
+      window.localStorage.removeItem('access_token');
+      window.location.replace('/');
       console.log(error)
     }
   }
@@ -60,7 +62,7 @@ function App() {
 
         <userData.Provider value={userInfo}>
 
-          <Header userInfo={userInfo} />
+          <Header />
 
           <Routes>
             <Route path="/" element={<RootLayout />} />

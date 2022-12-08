@@ -1,27 +1,17 @@
-import React from 'react'
-import { userData } from '../App'
+import React, { useContext } from 'react'
+import { UserContext } from '../App'
 
 
 const Profile = () => {
-
-
+    const userData = useContext(UserContext);
 
     return (
         <div className='container-profile'>
-
-            <userData.Consumer>
-                {(currData) => {
-                    console.log(currData)
-                    return (
-                        <div>
-                            <p>Your Email :  {currData.email}</p>
-                            <p>Your ID :  {currData.id}</p>
-                            <p>Created At : {currData.created?.slice(0, 10)}</p>
-
-                        </div>
-                    )
-                }}
-            </userData.Consumer>
+            <div>
+                <p>Your Email :  {userData.email}</p>
+                <p>Your ID :  {userData.id}</p>
+                <p>Created At : {userData.created?.slice(0, 10)}</p>
+            </div>
         </div>
     )
 }

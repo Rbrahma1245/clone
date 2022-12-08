@@ -1,23 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './index.css';
 import logo from '../Assets/Images/logo.png';
 import { NavLink } from 'react-router-dom';
 import Logout from '../Forms/Logout/Logout';
 import Profile from '../Components/Profile';
+import { UserContext } from '../App';
 
 const Header = () => {
+    
+    const userData = useContext(UserContext);
 
 
-    // if ("access_token" in localStorage) {
-    //     alert('yes');
-    // } else {
-    //     alert('no');
-    // }
-
-    // let key = window.localStorage.key("access_token");
-    // console.log(key)
-
-
+    // console.log("user", userData)
 
 
     return (
@@ -39,16 +33,12 @@ const Header = () => {
                 {/* <NavLink to="/nearby">  NEARBY</NavLink> */}
 
                 <div>
-                    {
-                        window.localStorage.getItem('access_token') !== null ? <Logout />
-                            :
-                            <div >
-                                {window.localStorage.clear()}
-                                <NavLink to="/signup">  SIGN UP </NavLink>
-                                <NavLink to="/login">  LOGIN </NavLink>
-                            </div>
+                    {userData ? <Logout />
+                        : <div >
+                            <NavLink to="/signup">  SIGN UP </NavLink>
+                            <NavLink to="/login">  LOGIN </NavLink>
+                        </div>
                     }
-
                 </div>
             </div>
         </div >

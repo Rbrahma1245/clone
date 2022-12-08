@@ -82,6 +82,10 @@ const Home = () => {
                 </div>
                 <MidHome />
 
+
+
+
+
             </div>
         </div>
     )

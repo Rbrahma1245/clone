@@ -21,7 +21,7 @@ import Profile from './Components/Profile';
 
 
 
-const userData = createContext();
+export const UserContext = createContext(null);
 
 
 function App() {
@@ -37,18 +37,20 @@ function App() {
 
 
   const fetchUserInfo = async () => {
-    try {
-      if ("access_token" in localStorage) {
+    const access_token = localStorage.getItem("access_token");
+    // console.log("Acess", access_token);
+    if (access_token) {
+      try {
         // alert('yes')
         const { data } = await AuthService.profile();
         setUserInfo(data)
         // console.log(data)
       }
-    }
-    catch (error) {
-      window.localStorage.removeItem('access_token');
-      window.location.replace('/');
-      console.log(error)
+      catch (error) {
+        localStorage.removeItem('access_token');
+        location.replace('/');
+        console.log(error)
+      }
     }
   }
 
@@ -60,10 +62,9 @@ function App() {
 
       <div className="App">
 
-        <userData.Provider value={userInfo}>
+        <UserContext.Provider value={userInfo}>
 
           <Header />
-
           <Routes>
             <Route path="/" element={<RootLayout />} />
             <Route path="/destinations" element={<Destination />} />
@@ -78,12 +79,10 @@ function App() {
           </Routes>
 
           <Footer />
-        </userData.Provider>
+        </UserContext.Provider>
       </div>
     ))
 }
 
-
-export { userData }
 
 export default App;

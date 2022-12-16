@@ -1,67 +1,85 @@
-import React, { useState, useEffect } from 'react'
-import { API } from '../../vars.js'
-import axios from 'axios';
+import React, { useState, useEffect, useContext, useRef } from 'react'
+import './index.css';
+// import Card from '../../Components/Card.jsx';
+import axios from 'axios'
 import qs from 'qs';
-import Card from '../../Components/Card.jsx';
-
+import Loader from '../../Components/Loader';
 
 const Search = () => {
 
 
-    const [blogs, setBlogs] = useState([]);
+    const API = "https://mamakoo-api.mithyalabs.com/api/users/autocomplete"
+
     const [searchInput, setSearchInput] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [APIData, setAPIData] = useState([]);
+
+
 
 
     useEffect(() => {
-        fetchsearchResult()
-    }, [])
+        let timer = setTimeout(() => {
+            fetchApiData(searchInput)
+        }, 1000)
+        return () => clearTimeout(timer)
+    }, [searchInput])
 
 
-    const fetchsearchResult = async () => {
+
+    const fetchApiData = async () => {
+        setLoading(true);
+
         const query = qs.stringify({
-            populate: "*"
+            term: searchInput,
+            filter: ""
         })
         try {
-            const { data } = await axios.get(API + `posts/?${query}`);
-            setBlogs(data.data)
-        } catch (error) {
+            const { data } = await axios.get(API + `?${query}`);
+            setAPIData(data)
+            console.log(data)
+        }
+        catch (error) {
             console.log(error)
         }
+        setLoading(false);
     }
 
 
-    const filteredData = blogs.filter((currElem) => {
-        if (searchInput === '') {
-            return currElem;
-        } else {
-            return currElem.attributes.title.toLowerCase().includes(searchInput)
-        }
-    })
+    if (loading) return <Loader />
 
-    console.log(filteredData)
 
 
     return (
-        <div className='container'>
+        <div className='search-container'>
             This is Search Bar
             <br />
-
             <input type="text" placeholder='Search Here' value={searchInput} onChange={(e) => setSearchInput(e.target.value.toLowerCase())} />
+            <button onClick={() => setSearchInput('')}>clear</button>
+
+            {
+                APIData.map((currElem) => {
+                    // console.log(currElem._pictures[0].url)
+                    let image = currElem._pictures?.[0]?.url
+
+                    return (
+                        <div className="box" key={currElem.id}>
+
+                            <div className='card-box'>
+                                <img className='search-image' src={image} alt="logo" />
+                                <div className='search-text'>
+                                    <h5>{currElem.name}</h5>
+
+                                    <p className='kkkk'>{currElem.types || currElem.doc_type}  {currElem.destination?.name}</p>
+                                </div>
+
+                            </div>
 
 
-            {filteredData.map((currElem) => {
-                // <li key={currElem.id}>{currElem.attributes.title}</li>
 
-
-                return (
-                    <div className="box" key={currElem.id}>
-                        <Card currPost={currElem} />
-                    </div>
-                )
-            })
+                        </div>
+                    )
+                })
             }
-
-
         </div >
     )
 }

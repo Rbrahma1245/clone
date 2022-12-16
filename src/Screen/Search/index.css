@@ -1,0 +1,22 @@
+.card-box {
+    display: flex;
+    margin-left: 500px;
+    background: lavender;
+    margin-top: 0;
+    /* border: 2px solid black; */
+    width: 500px;
+    height: 100px;
+    text-align: left;
+}
+
+.search-image {
+    width: 120px;
+    height: 100px;
+}
+
+.search-text {
+    margin-top: 0;
+    margin-left: 50px;
+    /* border: 2px solid black; */
+
+}

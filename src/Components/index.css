@@ -46,3 +46,11 @@
     text-align: center;
     height: 400px;
 }
+
+
+
+.loader {
+    margin-left: 500px;
+    width: 500px;
+    height: 400px;
+}

@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Link, NavLink } from 'react-router-dom';
 import Details from './Details.jsx';
 import Card from '../../Components/Card.jsx';
+import Loader from '../../Components/Loader';
 
 
 
@@ -13,10 +14,7 @@ const Destination = () => {
 
     const [blogs, setBlogs] = useState([]);
     const [meta, setMeta] = useState(undefined);
-    const [isLoading, setIsLoading] = useState(false);
-    const [searchApiData, setSearchApiData] = useState([])
-    const [search, setSearch] = useState('')
-
+    const [loading, setLoading] = useState(false);
 
 
 
@@ -26,32 +24,25 @@ const Destination = () => {
 
 
     const fetchDestinations = async () => {
-        setIsLoading(true);
+        setLoading(true);
         const query = qs.stringify({
             populate: "*"
         })
         try {
             const { data } = await axios.get(API + `posts/?${query}`);
             setBlogs(data.data)
-            setSearchApiData(data.data)
             setMeta(data.meta)
             console.log(data)
         }
         catch (error) {
             console.log(error)
         }
-        setIsLoading(false);
+        setLoading(false);
     }
 
 
 
-    if (isLoading) {
-        return (
-            <div>
-                <h1>Loading....</h1>
-            </div>
-        )
-    }
+    if (loading) return <Loader />
 
 
     return (

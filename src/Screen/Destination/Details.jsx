@@ -4,13 +4,14 @@ import { Link, NavLink, useParams } from 'react-router-dom';
 import qs from 'qs';
 import axios from 'axios';
 import { API } from '../../vars'
+import Loader from '../../Components/Loader';
 
 
 
 const Details = () => {
     const params = useParams();
     const [blogs, setBlogs] = useState(undefined);
-    const [isLoading, setIsLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const blogId = params.blogId;
 
 
@@ -20,7 +21,7 @@ const Details = () => {
 
 
     const fetchDetails = async () => {
-        setIsLoading(true);
+        setLoading(true);
         const query = qs.stringify({
             populate: "*",
         })
@@ -32,17 +33,13 @@ const Details = () => {
         catch (error) {
             console.log(error)
         }
-        setIsLoading(false);
+        setLoading(false);
     }
 
 
-    if (isLoading) {
-        return (
-            <div>
-                <h1>Loading....</h1>
-            </div>
-        )
-    }
+    if (loading) return <Loader />
+
+
 
     if (blogs === undefined) {
         return (

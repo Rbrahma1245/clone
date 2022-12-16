@@ -32,9 +32,9 @@ const Login = () => {
                 setUserInfo(data)
 
                 console.log(data)
-                window.localStorage.setItem('access_token', data.id)
+                localStorage.setItem('access_token', data.id)
                 alert('Login successfull')
-                window.location.replace('/');
+                location.replace('/');
             } catch (err) {
                 console.log(err);
             }

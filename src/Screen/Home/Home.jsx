@@ -5,9 +5,10 @@ import qs from 'qs';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import videourl from '../../Assets/Videos/HeaderVideo.mp4';
-
 import TravelPlaces from '../../Components/TravelPlaces.jsx';
 import MidHome from './MidHome.jsx';
+import Loader from '../../Components/Loader.jsx';
+
 
 
 
@@ -18,7 +19,7 @@ const Home = () => {
 
     const [blogs, setBlogs] = useState([]);
     const [meta, setMeta] = useState(undefined);
-    const [isLoading, setIsLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [searchApiData, setSearchApiData] = useState([])
 
 
@@ -31,7 +32,7 @@ const Home = () => {
 
 
     const fetchDestinations = async () => {
-        setIsLoading(true);
+        setLoading(true);
         const query = qs.stringify({
             populate: "*",
             pagination: {
@@ -49,18 +50,13 @@ const Home = () => {
         catch (error) {
             console.log(error)
         }
-        setIsLoading(false);
+        setLoading(false);
     }
 
 
 
-    if (isLoading) {
-        return (
-            <div>
-                <h1>Loading....</h1>
-            </div>
-        )
-    }
+
+    if (loading) return <Loader />
 
 
     return (
@@ -81,8 +77,6 @@ const Home = () => {
                     }
                 </div>
                 <MidHome />
-
-
 
 
 
